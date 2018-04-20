@@ -808,12 +808,14 @@ var DefaultController = {
   },
 
   currentUser(): ?ParseUser {
+    /*
     if (currentUserCache) {
       return currentUserCache;
     }
     if (currentUserCacheMatchesDisk) {
       return null;
     }
+    */
     if (Storage.async()) {
       throw new Error(
         'Cannot call currentUser() when using a platform with an async ' +
@@ -848,12 +850,14 @@ var DefaultController = {
   },
 
   currentUserAsync(): ParsePromise {
+    /*
     if (currentUserCache) {
       return ParsePromise.as(currentUserCache)
     }
     if (currentUserCacheMatchesDisk) {
       return ParsePromise.as(null);
     }
+    */
     var path = Storage.generatePath(CURRENT_USER_KEY);
     return Storage.getItemAsync(
       path
